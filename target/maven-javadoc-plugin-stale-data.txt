@@ -1,0 +1,74 @@
+-J-Duser.language=
+-J-Duser.country=
+@options
+@packages
+-classpath
+'/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.4/spring-boot-autoconfigure-3.3.4.jar:/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot/3.3.4/spring-boot-3.3.4.jar:/home/gmbunto/.m2/repository/org/springframework/spring-context/6.1.13/spring-context-6.1.13.jar:/home/gmbunto/.m2/repository/org/springframework/spring-aop/6.1.13/spring-aop-6.1.13.jar:/home/gmbunto/.m2/repository/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13.jar:/home/gmbunto/.m2/repository/org/springframework/spring-expression/6.1.13/spring-expression-6.1.13.jar:/home/gmbunto/.m2/repository/io/micrometer/micrometer-observation/1.13.4/micrometer-observation-1.13.4.jar:/home/gmbunto/.m2/repository/io/micrometer/micrometer-commons/1.13.4/micrometer-commons-1.13.4.jar:/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/3.3.4/spring-boot-configuration-processor-3.3.4.jar:/home/gmbunto/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar:/home/gmbunto/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar:/home/gmbunto/.m2/repository/org/springframework/spring-core/6.1.13/spring-core-6.1.13.jar:/home/gmbunto/.m2/repository/org/springframework/spring-jcl/6.1.13/spring-jcl-6.1.13.jar'
+-encoding
+'UTF-8'
+-protected
+-source
+'21'
+-sourcepath
+'/home/gmbunto/Documents/mg-bank-pain-format/src/main/java:/home/gmbunto/Documents/mg-bank-pain-format/target/generated-sources/annotations'
+-author
+-bottom
+'Copyright &#169; 2026. All rights reserved.'
+-charset
+'UTF-8'
+-d
+'/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs'
+-docencoding
+'UTF-8'
+-doctitle
+'mg-bank-pain-format-spring-boot-starter 1.0.0 API'
+-use
+-version
+-windowtitle
+'mg-bank-pain-format-spring-boot-starter 1.0.0 API'
+mg.pain.generator.pain008
+mg.pain.generator
+mg.pain.generator.pain001
+mg.pain.autoconfigure
+mg.pain.util
+mg.pain.jaxb.pain008v02
+mg.pain.jaxb.pain001v09
+mg.pain.jaxb.pain001v03
+mg.pain.domain
+mg.pain.exception
+/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/3.3.4/spring-boot-autoconfigure-3.3.4.jar = 1726743139000
+/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot/3.3.4/spring-boot-3.3.4.jar = 1726743149000
+/home/gmbunto/.m2/repository/org/springframework/spring-context/6.1.13/spring-context-6.1.13.jar = 1726141949000
+/home/gmbunto/.m2/repository/org/springframework/spring-aop/6.1.13/spring-aop-6.1.13.jar = 1726141967000
+/home/gmbunto/.m2/repository/org/springframework/spring-beans/6.1.13/spring-beans-6.1.13.jar = 1726141955000
+/home/gmbunto/.m2/repository/org/springframework/spring-expression/6.1.13/spring-expression-6.1.13.jar = 1726141910000
+/home/gmbunto/.m2/repository/io/micrometer/micrometer-observation/1.13.4/micrometer-observation-1.13.4.jar = 1725908577000
+/home/gmbunto/.m2/repository/io/micrometer/micrometer-commons/1.13.4/micrometer-commons-1.13.4.jar = 1725908575000
+/home/gmbunto/.m2/repository/org/springframework/boot/spring-boot-configuration-processor/3.3.4/spring-boot-configuration-processor-3.3.4.jar = 1737984492225
+/home/gmbunto/.m2/repository/jakarta/xml/bind/jakarta.xml.bind-api/4.0.2/jakarta.xml.bind-api-4.0.2.jar = 1708335734000
+/home/gmbunto/.m2/repository/jakarta/activation/jakarta.activation-api/2.1.3/jakarta.activation-api-2.1.3.jar = 1707984867000
+/home/gmbunto/.m2/repository/org/springframework/spring-core/6.1.13/spring-core-6.1.13.jar = 1726141922000
+/home/gmbunto/.m2/repository/org/springframework/spring-jcl/6.1.13/spring-jcl-6.1.13.jar = 1726141897000
+/home/gmbunto/Documents/mg-bank-pain-format/src/main/java = 1789640099019
+/home/gmbunto/Documents/mg-bank-pain-format/target/generated-sources/annotations = 1789646563722
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/tag-search-index.js = 1789646568315
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.html = 1789646568378
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index-all.html = 1789646568377
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/link.svg = 1789646568384
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/element-list = 1789646568049
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/stylesheet.css = 1789646568382
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-tree.html = 1789646568256
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search-page.js = 1789646568384
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/serialized-form.html = 1789646568087
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.js = 1789646568384
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/package-search-index.js = 1789646568315
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/help-doc.html = 1789646568381
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/script.js = 1789646568383
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allclasses-index.html = 1789646568312
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/member-search-index.js = 1789646568315
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/type-search-index.js = 1789646568315
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index.html = 1789646568258
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/module-search-index.js = 1789646568315
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/copy.svg = 1789646568384
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-summary.html = 1789646568379
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allpackages-index.html = 1789646568313

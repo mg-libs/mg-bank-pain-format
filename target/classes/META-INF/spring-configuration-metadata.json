@@ -1,0 +1,86 @@
+{
+  "groups": [
+    {
+      "name": "mg-bank.pain",
+      "type": "mg.pain.autoconfigure.PainProperties",
+      "sourceType": "mg.pain.autoconfigure.PainProperties"
+    },
+    {
+      "name": "mg-bank.pain.creditor",
+      "type": "mg.pain.autoconfigure.PainProperties$Creditor",
+      "sourceType": "mg.pain.autoconfigure.PainProperties",
+      "sourceMethod": "getCreditor()"
+    },
+    {
+      "name": "mg-bank.pain.debtor",
+      "type": "mg.pain.autoconfigure.PainProperties$Debtor",
+      "sourceType": "mg.pain.autoconfigure.PainProperties",
+      "sourceMethod": "getDebtor()"
+    },
+    {
+      "name": "mg-bank.pain.output",
+      "type": "mg.pain.autoconfigure.PainProperties$Output",
+      "sourceType": "mg.pain.autoconfigure.PainProperties",
+      "sourceMethod": "getOutput()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "mg-bank.pain.creditor.bic",
+      "type": "java.lang.String",
+      "description": "BIC\/SWIFT de la banque du créancier.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Creditor"
+    },
+    {
+      "name": "mg-bank.pain.creditor.creditor-id",
+      "type": "java.lang.String",
+      "description": "Identifiant Créancier SEPA (ICS) — obligatoire pour SDD Core. Format : 2 lettres pays + 2 chiffres contrôle + 3 lettres id type + identifiant national. Ex: FR72ZZZ123456",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Creditor"
+    },
+    {
+      "name": "mg-bank.pain.creditor.iban",
+      "type": "java.lang.String",
+      "description": "IBAN du compte créancier.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Creditor"
+    },
+    {
+      "name": "mg-bank.pain.creditor.name",
+      "type": "java.lang.String",
+      "description": "Nom du créancier.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Creditor"
+    },
+    {
+      "name": "mg-bank.pain.debtor.bic",
+      "type": "java.lang.String",
+      "description": "BIC\/SWIFT de la banque du débiteur.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Debtor"
+    },
+    {
+      "name": "mg-bank.pain.debtor.iban",
+      "type": "java.lang.String",
+      "description": "IBAN du compte débiteur.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Debtor"
+    },
+    {
+      "name": "mg-bank.pain.debtor.name",
+      "type": "java.lang.String",
+      "description": "Nom de l'organisme émetteur.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Debtor"
+    },
+    {
+      "name": "mg-bank.pain.enabled",
+      "type": "java.lang.Boolean",
+      "description": "Active ou désactive le starter. Défaut : true.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties",
+      "defaultValue": true
+    },
+    {
+      "name": "mg-bank.pain.output.charset",
+      "type": "java.lang.String",
+      "description": "Encodage du fichier XML. Défaut : UTF-8.",
+      "sourceType": "mg.pain.autoconfigure.PainProperties$Output",
+      "defaultValue": "UTF-8"
+    }
+  ],
+  "hints": []
+}

@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: mg.pain.Pain001V03GeneratorTest
+-------------------------------------------------------------------------------
+Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s -- in mg.pain.Pain001V03GeneratorTest
