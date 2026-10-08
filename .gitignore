@@ -1,0 +1,21 @@
+# Maven
+target/
+*.class
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# GPG (publication Maven Central)
+*.asc
+
+# IA / BMad
+.claude/
+_bmad/
+_bmad-output/
