@@ -6,6 +6,7 @@ import mg.pain.generator.PainGenerator;
 import mg.pain.generator.pain001.Pain001V03Generator;
 import mg.pain.generator.pain001.Pain001V09Generator;
 import mg.pain.generator.pain008.Pain008V02Generator;
+import mg.pain.generator.pain008.Pain008V08Generator;
 import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -50,5 +51,15 @@ public class PainAutoConfiguration {
     @Bean("pain008V02B2bGenerator")
     public PainGenerator<SepaDirectDebitRequest> pain008V02B2bGenerator(PainProperties properties) {
         return new Pain008V02Generator(properties, "B2B");
+    }
+
+    @Bean("pain008V08CoreGenerator")
+    public PainGenerator<SepaDirectDebitRequest> pain008V08CoreGenerator(PainProperties properties) {
+        return new Pain008V08Generator(properties, "CORE");
+    }
+
+    @Bean("pain008V08B2bGenerator")
+    public PainGenerator<SepaDirectDebitRequest> pain008V08B2bGenerator(PainProperties properties) {
+        return new Pain008V08Generator(properties, "B2B");
     }
 }

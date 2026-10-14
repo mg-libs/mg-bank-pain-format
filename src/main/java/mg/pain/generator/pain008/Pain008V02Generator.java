@@ -1,6 +1,7 @@
 package mg.pain.generator.pain008;
 
 import mg.pain.autoconfigure.PainProperties;
+import mg.pain.domain.AddressFormat;
 import mg.pain.domain.PainGenerationResult;
 import mg.pain.domain.SepaDirectDebitRequest;
 import mg.pain.exception.PainGenerationException;
@@ -146,11 +147,12 @@ public class Pain008V02Generator implements PainGenerator<SepaDirectDebitRequest
         PaymentInstructionInformation4 payment = new PaymentInstructionInformation4();
         payment.setPmtInfId(messageId + "-1");
         payment.setPmtMtd(PaymentMethod2Code.DD);
+        payment.setBtchBookg(properties.getCreditor().isBatchBooking());
         payment.setNbOfTxs(nbTransactions);
         payment.setCtrlSum(controlSum);
         payment.setPmtTpInf(buildPaymentType(requests.get(0).getSequenceType()));
         payment.setReqdColltnDt(XmlCalendarUtils.fromLocalDate(requests.get(0).getCollectionDate()));
-        payment.setCdtr(buildParty(properties.getCreditor().getName()));
+        payment.setCdtr(buildCreditorParty());
         payment.setCdtrAcct(buildAccount(properties.getCreditor().getIban()));
         payment.setCdtrAgt(buildBic(properties.getCreditor().getBic()));
         payment.setChrgBr(ChargeBearerType1Code.SLEV);
@@ -203,8 +205,14 @@ public class Pain008V02Generator implements PainGenerator<SepaDirectDebitRequest
         tx.setDrctDbtTx(drctDbtTx);
 
         tx.setDbtrAgt(buildBic(request.getDebtorBic()));
-        tx.setDbtr(buildParty(SepaStringUtils.normalizeName(request.getDebtorName())));
+        tx.setDbtr(buildDebtorParty(request));
         tx.setDbtrAcct(buildAccount(request.getDebtorIban()));
+
+        if (request.getUltimateCreditorName() != null) {
+            PartyIdentification32 ultmtCdtr = new PartyIdentification32();
+            ultmtCdtr.setNm(SepaStringUtils.normalizeName(request.getUltimateCreditorName()));
+            tx.setUltmtCdtr(ultmtCdtr);
+        }
 
         if (request.getRemittanceInfo() != null) {
             RemittanceInformation5 rmtInf = new RemittanceInformation5();
@@ -223,6 +231,56 @@ public class Pain008V02Generator implements PainGenerator<SepaDirectDebitRequest
         PartyIdentification32 party = new PartyIdentification32();
         party.setNm(name);
         return party;
+    }
+
+    /** Créancier (PmtInf/Cdtr) — données issues de PainProperties. */
+    private PartyIdentification32 buildCreditorParty() {
+        PainProperties.Creditor cred = properties.getCreditor();
+        PartyIdentification32 party = new PartyIdentification32();
+        party.setNm(cred.getName());
+        PostalAddress6 addr = buildAddress(
+                cred.getCountry(), cred.getTownName(), cred.getPostalCode(),
+                cred.getAddressLine1(), cred.getAddressLine2(),
+                cred.getStreetName(), cred.getBuildingNumber());
+        if (addr != null) party.setPstlAdr(addr);
+        return party;
+    }
+
+    /** Débiteur (DrctDbtTxInf/Dbtr) — données issues de la requête. */
+    private PartyIdentification32 buildDebtorParty(SepaDirectDebitRequest req) {
+        PartyIdentification32 party = new PartyIdentification32();
+        party.setNm(SepaStringUtils.normalizeName(req.getDebtorName()));
+        PostalAddress6 addr = buildAddress(
+                req.getDebtorCountry(), req.getDebtorTownName(), req.getDebtorPostalCode(),
+                req.getDebtorAddressLine1(), req.getDebtorAddressLine2(),
+                req.getDebtorStreetName(), req.getDebtorBuildingNumber());
+        if (addr != null) party.setPstlAdr(addr);
+        return party;
+    }
+
+    /**
+     * Construit un PostalAddress6 à partir du format global défini dans PainProperties.
+     * Retourne null si le format n'est pas configuré ou si country/townName sont absents.
+     */
+    private PostalAddress6 buildAddress(String country, String townName, String postalCode,
+                                        String addressLine1, String addressLine2,
+                                        String streetName, String buildingNumber) {
+        AddressFormat format = properties.getAddressFormat();
+        if (format == null || country == null || townName == null) return null;
+
+        PostalAddress6 addr = new PostalAddress6();
+        addr.setCtry(country);
+        addr.setTwnNm(SepaStringUtils.truncate(townName, 35));
+        if (postalCode != null) addr.setPstCd(SepaStringUtils.truncate(postalCode, 16));
+
+        if (format == AddressFormat.HYBRID) {
+            if (addressLine1 != null) addr.getAdrLine().add(SepaStringUtils.truncate(addressLine1, 70));
+            if (addressLine2 != null) addr.getAdrLine().add(SepaStringUtils.truncate(addressLine2, 70));
+        } else {
+            if (streetName != null) addr.setStrtNm(SepaStringUtils.truncate(streetName, 70));
+            if (buildingNumber != null) addr.setBldgNb(SepaStringUtils.truncate(buildingNumber, 16));
+        }
+        return addr;
     }
 
     private CashAccount16 buildAccount(String iban) {

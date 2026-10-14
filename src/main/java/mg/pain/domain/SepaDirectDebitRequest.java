@@ -53,6 +53,36 @@ public class SepaDirectDebitRequest {
      */
     private String sequenceType;
 
+    // ---- Adresse postale du débiteur (PstlAdr) ----
+    // Incluse dans le XML uniquement si debtorCountry ET debtorTownName sont renseignés.
+    // Le format (HYBRID / STRUCTURED) est un paramètre global défini dans PainProperties.
+
+    /** Code pays ISO alpha-2 (ex : "FR") — obligatoire si PstlAdr présent. */
+    private String debtorCountry;
+
+    /** Ville (max 35 caractères) — obligatoire si PstlAdr présent. */
+    private String debtorTownName;
+
+    /** Code postal (optionnel, max 16 caractères). */
+    private String debtorPostalCode;
+
+    // Mode HYBRID
+    /** Première ligne d'adresse libre (AdrLine, max 70 caractères). */
+    private String debtorAddressLine1;
+    /** Deuxième ligne d'adresse libre (AdrLine, max 70 caractères). */
+    private String debtorAddressLine2;
+
+    // Mode STRUCTURED
+    /** Nom de la rue (StrtNm, max 70 caractères). */
+    private String debtorStreetName;
+    /** Numéro de bâtiment (BldgNb, max 16 caractères). */
+    private String debtorBuildingNumber;
+
+    // ---- Créancier final (UltmtCdtr) ----
+
+    /** Nom du créancier final si différent du créancier SEPA (optionnel, max 70 caractères). */
+    private String ultimateCreditorName;
+
     public SepaDirectDebitRequest() {}
 
     public SepaDirectDebitRequest(String endToEndId, BigDecimal amount, String currency,
@@ -104,4 +134,28 @@ public class SepaDirectDebitRequest {
 
     public String getSequenceType() { return sequenceType; }
     public void setSequenceType(String sequenceType) { this.sequenceType = sequenceType; }
+
+    public String getDebtorCountry() { return debtorCountry; }
+    public void setDebtorCountry(String debtorCountry) { this.debtorCountry = debtorCountry; }
+
+    public String getDebtorTownName() { return debtorTownName; }
+    public void setDebtorTownName(String debtorTownName) { this.debtorTownName = debtorTownName; }
+
+    public String getDebtorPostalCode() { return debtorPostalCode; }
+    public void setDebtorPostalCode(String debtorPostalCode) { this.debtorPostalCode = debtorPostalCode; }
+
+    public String getDebtorAddressLine1() { return debtorAddressLine1; }
+    public void setDebtorAddressLine1(String debtorAddressLine1) { this.debtorAddressLine1 = debtorAddressLine1; }
+
+    public String getDebtorAddressLine2() { return debtorAddressLine2; }
+    public void setDebtorAddressLine2(String debtorAddressLine2) { this.debtorAddressLine2 = debtorAddressLine2; }
+
+    public String getDebtorStreetName() { return debtorStreetName; }
+    public void setDebtorStreetName(String debtorStreetName) { this.debtorStreetName = debtorStreetName; }
+
+    public String getDebtorBuildingNumber() { return debtorBuildingNumber; }
+    public void setDebtorBuildingNumber(String debtorBuildingNumber) { this.debtorBuildingNumber = debtorBuildingNumber; }
+
+    public String getUltimateCreditorName() { return ultimateCreditorName; }
+    public void setUltimateCreditorName(String ultimateCreditorName) { this.ultimateCreditorName = ultimateCreditorName; }
 }

@@ -4,7 +4,7 @@ import jakarta.xml.bind.annotation.*;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "DirectDebitTransactionInformation9", propOrder = {
-        "pmtId", "instdAmt", "drctDbtTx", "dbtrAgt", "dbtr", "dbtrAcct", "rmtInf"
+        "pmtId", "instdAmt", "drctDbtTx", "ultmtCdtr", "dbtrAgt", "dbtr", "dbtrAcct", "rmtInf"
 })
 public class DirectDebitTransactionInformation9 {
 
@@ -16,6 +16,9 @@ public class DirectDebitTransactionInformation9 {
 
     @XmlElement(name = "DrctDbtTx")
     protected DirectDebitTransaction6 drctDbtTx;
+
+    @XmlElement(name = "UltmtCdtr")
+    protected PartyIdentification32 ultmtCdtr;
 
     @XmlElement(name = "DbtrAgt", required = true)
     protected BranchAndFinancialInstitutionIdentification4 dbtrAgt;
@@ -37,6 +40,9 @@ public class DirectDebitTransactionInformation9 {
 
     public DirectDebitTransaction6 getDrctDbtTx() { return drctDbtTx; }
     public void setDrctDbtTx(DirectDebitTransaction6 value) { this.drctDbtTx = value; }
+
+    public PartyIdentification32 getUltmtCdtr() { return ultmtCdtr; }
+    public void setUltmtCdtr(PartyIdentification32 value) { this.ultmtCdtr = value; }
 
     public BranchAndFinancialInstitutionIdentification4 getDbtrAgt() { return dbtrAgt; }
     public void setDbtrAgt(BranchAndFinancialInstitutionIdentification4 value) { this.dbtrAgt = value; }

@@ -29,6 +29,31 @@ public class SepaTransferRequest {
     /** Libellé du virement (RemittanceInformation) — max 140 caractères. */
     private String remittanceInfo;
 
+    // ---- Adresse postale du bénéficiaire (PstlAdr) ----
+    // Incluse dans le XML uniquement si creditorCountry ET creditorTownName sont renseignés.
+    // Le format (HYBRID / STRUCTURED) est un paramètre global défini dans PainProperties.
+
+    /** Code pays ISO alpha-2 (ex : "FR") — obligatoire si PstlAdr présent. */
+    private String creditorCountry;
+
+    /** Ville (max 35 caractères) — obligatoire si PstlAdr présent. */
+    private String creditorTownName;
+
+    /** Code postal (optionnel, max 16 caractères). */
+    private String creditorPostalCode;
+
+    // Mode HYBRID
+    /** Première ligne d'adresse libre (AdrLine, max 70 caractères). */
+    private String creditorAddressLine1;
+    /** Deuxième ligne d'adresse libre (AdrLine, max 70 caractères). */
+    private String creditorAddressLine2;
+
+    // Mode STRUCTURED
+    /** Nom de la rue (StrtNm, max 70 caractères). */
+    private String creditorStreetName;
+    /** Numéro de bâtiment (BldgNb, max 16 caractères). */
+    private String creditorBuildingNumber;
+
     public SepaTransferRequest() {}
 
     public SepaTransferRequest(String endToEndId, BigDecimal amount, String currency,
@@ -63,4 +88,25 @@ public class SepaTransferRequest {
 
     public String getRemittanceInfo() { return remittanceInfo; }
     public void setRemittanceInfo(String remittanceInfo) { this.remittanceInfo = remittanceInfo; }
+
+    public String getCreditorCountry() { return creditorCountry; }
+    public void setCreditorCountry(String creditorCountry) { this.creditorCountry = creditorCountry; }
+
+    public String getCreditorTownName() { return creditorTownName; }
+    public void setCreditorTownName(String creditorTownName) { this.creditorTownName = creditorTownName; }
+
+    public String getCreditorPostalCode() { return creditorPostalCode; }
+    public void setCreditorPostalCode(String creditorPostalCode) { this.creditorPostalCode = creditorPostalCode; }
+
+    public String getCreditorAddressLine1() { return creditorAddressLine1; }
+    public void setCreditorAddressLine1(String creditorAddressLine1) { this.creditorAddressLine1 = creditorAddressLine1; }
+
+    public String getCreditorAddressLine2() { return creditorAddressLine2; }
+    public void setCreditorAddressLine2(String creditorAddressLine2) { this.creditorAddressLine2 = creditorAddressLine2; }
+
+    public String getCreditorStreetName() { return creditorStreetName; }
+    public void setCreditorStreetName(String creditorStreetName) { this.creditorStreetName = creditorStreetName; }
+
+    public String getCreditorBuildingNumber() { return creditorBuildingNumber; }
+    public void setCreditorBuildingNumber(String creditorBuildingNumber) { this.creditorBuildingNumber = creditorBuildingNumber; }
 }

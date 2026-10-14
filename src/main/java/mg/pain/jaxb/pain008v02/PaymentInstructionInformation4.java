@@ -8,7 +8,7 @@ import java.util.List;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "PaymentInstructionInformation4", propOrder = {
-        "pmtInfId", "pmtMtd", "nbOfTxs", "ctrlSum",
+        "pmtInfId", "pmtMtd", "btchBookg", "nbOfTxs", "ctrlSum",
         "pmtTpInf", "reqdColltnDt",
         "cdtr", "cdtrAcct", "cdtrAgt",
         "chrgBr", "drctDbtTxInf"
@@ -21,6 +21,9 @@ public class PaymentInstructionInformation4 {
     @XmlElement(name = "PmtMtd", required = true)
     @XmlSchemaType(name = "string")
     protected PaymentMethod2Code pmtMtd;
+
+    @XmlElement(name = "BtchBookg")
+    protected Boolean btchBookg;
 
     @XmlElement(name = "NbOfTxs")
     protected String nbOfTxs;
@@ -77,6 +80,9 @@ public class PaymentInstructionInformation4 {
 
     public BranchAndFinancialInstitutionIdentification4 getCdtrAgt() { return cdtrAgt; }
     public void setCdtrAgt(BranchAndFinancialInstitutionIdentification4 value) { this.cdtrAgt = value; }
+
+    public Boolean getBtchBookg() { return btchBookg; }
+    public void setBtchBookg(Boolean value) { this.btchBookg = value; }
 
     public ChargeBearerType1Code getChrgBr() { return chrgBr; }
     public void setChrgBr(ChargeBearerType1Code value) { this.chrgBr = value; }

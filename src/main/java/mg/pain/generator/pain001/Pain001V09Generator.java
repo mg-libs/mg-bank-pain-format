@@ -1,8 +1,10 @@
 package mg.pain.generator.pain001;
 
 import mg.pain.autoconfigure.PainProperties;
+import mg.pain.domain.AddressFormat;
 import mg.pain.domain.PainGenerationResult;
 import mg.pain.domain.SepaTransferRequest;
+
 import mg.pain.exception.PainGenerationException;
 import mg.pain.generator.PainGenerator;
 import mg.pain.jaxb.pain001v09.*;
@@ -184,7 +186,7 @@ public class Pain001V09Generator implements PainGenerator<SepaTransferRequest> {
         tx.setAmt(amountType);
 
         tx.setCdtrAgt(buildBic(request.getCreditorBic()));
-        tx.setCdtr(buildParty(SepaStringUtils.normalizeName(request.getCreditorName())));
+        tx.setCdtr(buildCreditorParty(request));
         tx.setCdtrAcct(buildAccount(request.getCreditorIban()));
 
         RemittanceInformation16 rmtInfo = new RemittanceInformation16();
@@ -202,6 +204,43 @@ public class Pain001V09Generator implements PainGenerator<SepaTransferRequest> {
         PartyIdentification135 party = new PartyIdentification135();
         party.setNm(name);
         return party;
+    }
+
+    private PartyIdentification135 buildCreditorParty(SepaTransferRequest req) {
+        PartyIdentification135 party = new PartyIdentification135();
+        party.setNm(SepaStringUtils.normalizeName(req.getCreditorName()));
+        PostalAddress24 addr = buildAddress(
+                req.getCreditorCountry(), req.getCreditorTownName(), req.getCreditorPostalCode(),
+                req.getCreditorAddressLine1(), req.getCreditorAddressLine2(),
+                req.getCreditorStreetName(), req.getCreditorBuildingNumber());
+        if (addr != null) party.setPstlAdr(addr);
+        return party;
+    }
+
+    /**
+     * Construit un PostalAddress24 (pain.001.001.09) à partir du format global.
+     * Retourne null si le format n'est pas configuré ou si country/townName sont absents.
+     * En V09, AdrLine est limité à 2 occurrences maximum.
+     */
+    private PostalAddress24 buildAddress(String country, String townName, String postalCode,
+                                         String addressLine1, String addressLine2,
+                                         String streetName, String buildingNumber) {
+        AddressFormat format = properties.getAddressFormat();
+        if (format == null || country == null || townName == null) return null;
+
+        PostalAddress24 addr = new PostalAddress24();
+        addr.setCtry(country);
+        addr.setTwnNm(SepaStringUtils.truncate(townName, 35));
+        if (postalCode != null) addr.setPstCd(SepaStringUtils.truncate(postalCode, 16));
+
+        if (format == AddressFormat.HYBRID) {
+            if (addressLine1 != null) addr.getAdrLine().add(SepaStringUtils.truncate(addressLine1, 70));
+            if (addressLine2 != null) addr.getAdrLine().add(SepaStringUtils.truncate(addressLine2, 70));
+        } else {
+            if (streetName != null) addr.setStrtNm(SepaStringUtils.truncate(streetName, 70));
+            if (buildingNumber != null) addr.setBldgNb(SepaStringUtils.truncate(buildingNumber, 16));
+        }
+        return addr;
     }
 
     private CashAccount24 buildAccount(String iban) {
