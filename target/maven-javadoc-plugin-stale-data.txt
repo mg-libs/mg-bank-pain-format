@@ -21,17 +21,18 @@
 -docencoding
 'UTF-8'
 -doctitle
-'mg-bank-pain-format-spring-boot-starter 1.0.0 API'
+'mg-bank-pain-format-spring-boot-starter 1.1.0 API'
 -use
 -version
 -windowtitle
-'mg-bank-pain-format-spring-boot-starter 1.0.0 API'
+'mg-bank-pain-format-spring-boot-starter 1.1.0 API'
 mg.pain.generator.pain008
 mg.pain.generator
 mg.pain.generator.pain001
 mg.pain.autoconfigure
 mg.pain.util
 mg.pain.jaxb.pain008v02
+mg.pain.jaxb.pain008v08
 mg.pain.jaxb.pain001v09
 mg.pain.jaxb.pain001v03
 mg.pain.domain
@@ -50,25 +51,25 @@ mg.pain.exception
 /home/gmbunto/.m2/repository/org/springframework/spring-core/6.1.13/spring-core-6.1.13.jar = 1726141922000
 /home/gmbunto/.m2/repository/org/springframework/spring-jcl/6.1.13/spring-jcl-6.1.13.jar = 1726141897000
 /home/gmbunto/Documents/mg-bank-pain-format/src/main/java = 1789640099019
-/home/gmbunto/Documents/mg-bank-pain-format/target/generated-sources/annotations = 1789646563722
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/tag-search-index.js = 1789646568315
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.html = 1789646568378
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index-all.html = 1789646568377
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/link.svg = 1789646568384
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/element-list = 1789646568049
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/stylesheet.css = 1789646568382
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-tree.html = 1789646568256
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search-page.js = 1789646568384
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/serialized-form.html = 1789646568087
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.js = 1789646568384
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/package-search-index.js = 1789646568315
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/help-doc.html = 1789646568381
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/script.js = 1789646568383
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allclasses-index.html = 1789646568312
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/member-search-index.js = 1789646568315
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/type-search-index.js = 1789646568315
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index.html = 1789646568258
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/module-search-index.js = 1789646568315
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/copy.svg = 1789646568384
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-summary.html = 1789646568379
-/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allpackages-index.html = 1789646568313
+/home/gmbunto/Documents/mg-bank-pain-format/target/generated-sources/annotations = 1791985819621
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/tag-search-index.js = 1791985824841
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.html = 1791985824904
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index-all.html = 1791985824904
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/link.svg = 1791985824908
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/element-list = 1791985824539
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/stylesheet.css = 1791985824907
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-tree.html = 1791985824780
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search-page.js = 1791985824909
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/serialized-form.html = 1791985824597
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/search.js = 1791985824909
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/package-search-index.js = 1791985824839
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/help-doc.html = 1791985824906
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/script.js = 1791985824908
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allclasses-index.html = 1791985824836
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/member-search-index.js = 1791985824841
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/type-search-index.js = 1791985824839
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/index.html = 1791985824782
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/module-search-index.js = 1791985824838
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/copy.svg = 1791985824908
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/overview-summary.html = 1791985824905
+/home/gmbunto/Documents/mg-bank-pain-format/target/reports/apidocs/allpackages-index.html = 1791985824837
