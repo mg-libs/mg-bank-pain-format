@@ -101,7 +101,6 @@ public class PainProperties {
 
         // ---- Adresse postale du créancier (PstlAdr dans pain.008 PmtInf/Cdtr) ----
 
-        private AddressFormat addressFormat;
         private String country;
         private String townName;
         private String postalCode;
@@ -109,9 +108,6 @@ public class PainProperties {
         private String addressLine2;
         private String streetName;
         private String buildingNumber;
-
-        public AddressFormat getAddressFormat() { return addressFormat; }
-        public void setAddressFormat(AddressFormat addressFormat) { this.addressFormat = addressFormat; }
 
         public String getCountry() { return country; }
         public void setCountry(String country) { this.country = country; }

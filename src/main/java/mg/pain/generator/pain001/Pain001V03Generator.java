@@ -186,9 +186,11 @@ public class Pain001V03Generator implements PainGenerator<SepaTransferRequest> {
         tx.setCdtrAcct(buildAccount(request.getCreditorIban()));
 
         // Libellé
-        RemittanceInformation5 rmtInfo = new RemittanceInformation5();
-        rmtInfo.setUstrd(SepaStringUtils.normalizeRemittanceInfo(request.getRemittanceInfo()));
-        tx.setRmtInf(rmtInfo);
+        if (request.getRemittanceInfo() != null) {
+            RemittanceInformation5 rmtInfo = new RemittanceInformation5();
+            rmtInfo.setUstrd(SepaStringUtils.normalizeRemittanceInfo(request.getRemittanceInfo()));
+            tx.setRmtInf(rmtInfo);
+        }
 
         return tx;
     }

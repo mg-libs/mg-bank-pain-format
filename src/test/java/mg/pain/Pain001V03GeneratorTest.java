@@ -128,6 +128,20 @@ class Pain001V03GeneratorTest {
         assertThat(xml).contains("<PmtInfId>MSGID001-1</PmtInfId>");
     }
 
+    @Test
+    void generate_withNullRemittanceInfo_shouldNotContainRmtInfElement() {
+        SepaTransferRequest request = new SepaTransferRequest(
+                "E2E-001", new BigDecimal("100.00"), "EUR",
+                "DUPONT JEAN", "FR7630006000011234567890189", "AGRIFRPP882", null
+        );
+
+        PainGenerationResult result = generator.generate(List.of(request), "MSGNORMT001");
+        String xml = new String(result.getContent());
+
+        assertThat(xml).doesNotContain("<RmtInf>");
+        assertThat(xml).doesNotContain("<Ustrd>");
+    }
+
     // -------------------------------------------------------------------------
 
     private SepaTransferRequest buildRequest(String endToEndId, BigDecimal amount,
